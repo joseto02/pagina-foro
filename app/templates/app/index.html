@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+</head>
+<body>
+    {% load user_agents %}
+
+    <div class="page-container">
+        <header class="d-flex align-items-center">
+            <img src="{% static 'img/logo99.png' %}" class="logo img-fluid" alt="logo">
+            <div class="text-content ms-4">
+                <h2>Bienvenido a GamerNest</h2>
+                <p>Únete a nuestra comunidad de videojuegos</p>
+            </div>
+        </header>
+    </div>
+
+    <div class="about-section">
+        <h2>¿Quiénes somos?</h2>
+        <p>
+            Somos **GamerNest**, un foro dedicado a los videojuegos donde podrás compartir tus experiencias con otros
+            jugadores apasionados como tú.
+        </p>
+        <p>
+            En nuestra aplicación encontrarás:
+        </p>
+        <ul>
+            <li>Las últimas noticias del mundo gamer.</li>
+            <li>Un calendario actualizado con los próximos lanzamientos de juegos.</li>
+            <li>Reseñas detalladas de los últimos títulos para ayudarte a decidir si son de tu agrado.</li>
+        </ul>
+        <p>
+            Al registrarte, tendrás acceso a funcionalidades exclusivas:
+        </p>
+        <ul>
+            <li>Publicar tus dudas o consultas sobre videojuegos.</li>
+            <li>Comentar en foros de otros usuarios para brindar o recibir ayuda.</li>
+            <li>Agregar a favoritos las noticias y reseñas que más te gusten.</li>
+            <li>Editar tu perfil para personalizar tu experiencia.</li>
+        </ul>
+        <p>
+            Únete a GamerNest y sé parte de la comunidad gamer más activa. ¡Te esperamos!
+        </p>
+    </div>
+
+    <div class="app-section">
+        <h2>Nuestra app</h2>
+        <div class="row">
+            <div class="col-xs-12 col-sm-4">
+                <div class="card">
+                    <img src="{% static 'img/app1.png' %}" alt="Pagina de inicio">
+                    <div class="card-body">
+                        <h5 class="card-title">Página de inicio</h5>
+                        <p class="card-text">Aquí verás las noticias, foros y reseñas publicadas más recientes.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                <div class="card">
+                    <img src="{% static 'img/app2.png' %}" alt="Pagina de foro">
+                    <div class="card-body">
+                        <h5 class="card-title">Página de foro</h5>
+                        <p class="card-text">En esta página podrás publicar tus foros y también comentar los foros de otros
+                            usuarios.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                <div class="card">
+                    <img src="{% static 'img/app3.png' %}" alt="Pagina de estrenos">
+                    <div class="card-body">
+                        <h5 class="card-title">Página de estrenos</h5>
+                        <p class="card-text">Aquí podrás ver los lanzamientos más recientes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Solo mostrar para usuarios en dispositivos moviles -->
+    {% if request|is_mobile %}
+        <div class="descarga">
+            <div class="icono-app">
+                <img src="{% static 'img/logo99.png' %}" alt="icono">
+            </div>
+            <h2>Enlace de descarga</h2>
+            <p>Descarga nuestra aplicación y comienza a disfrutar de todas sus ventajas.</p>
+            <a href="{% static 'apks/app-debug.apk' %}" class="descarga-link" download>Descargar app</a>
+        </div>
+    {% endif %} 
+    
+    <!-- Mostrar para usuario en pc -->
+    {% if request|is_pc %}
+        <div class="descarga">
+            <div class="icono-app">
+                <img src="{% static 'img/logo99.png' %}" alt="icono">
+            </div>
+            <div class="descarga-contenido">
+                <div class="descarga-icono">
+                    <img src="{% static 'img/apkqr.png' %}" alt="Botón de descarga">
+                </div>
+                <div class="descarga-texto">
+                    <h3>¡Descarga nuestra app ahora!</h3>
+                    <p>Escanea el codigo QR y descarga nuestra aplicación y unete a una comunidad unica.</p>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+</html>
